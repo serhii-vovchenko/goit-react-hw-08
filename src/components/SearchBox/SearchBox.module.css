@@ -1,0 +1,19 @@
+.wrapper {
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    text-align: start;
+}
+
+.searchInput {
+    padding: 8px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: black;
+}
