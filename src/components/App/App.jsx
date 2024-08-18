@@ -1,53 +1,64 @@
 import './App.css';
 
-import ContactForm from '../ContactForm/ContactForm';
-import SearchBox from '../SearchBox/SearchBox';
-import ContactList from '../ContactList/ContactList';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectLoading } from '../../redux/contacts/selectors';
 import { useEffect } from 'react';
-import { fetchContacts } from '../../redux/contacts/operations';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '../../pages/HomePage/HomePage';
-import RegistrationForm from '../RegistrationForm/RegistrationForm';
-import LoginPage from '../../pages/LoginPage/LoginPage';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { refreshUserThunk } from '../../redux/auth/operations';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
+
+import { PrivateRoute } from '../../Routes/PdivateRoute';
+import { PublicRoute } from '../../Routes/PublicRoute';
+
 import Layout from '../Layout/Layout';
-import RegistrationPage from '../../pages/RegistrationPage/RegistrationPage';
+import HomePage from '../../pages/HomePage/HomePage';
+import LoginPage from '../../pages/LoginPage/LoginPage';
 import ContactsPage from '../../pages/ContactsPage/ContactsPage';
+import RegistrationPage from '../../pages/RegistrationPage/RegistrationPage';
+import Loader from '../Loader/Loader';
 
 function App() {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUserThunk());
   }, [dispatch]);
 
-  // const isLoading = useSelector(selectLoading);
-  // const isError = useSelector(selectError);
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-        </Route>
-        <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<h2>Page not found</h2>} />
 
-        {/* <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<RegistrationForm />} />
-        <Route path="/login" element={LoginPage} /> */}
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+        </Route>
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <RegistrationPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route path="*" element={<h2>Page not found</h2>} />
       </Routes>
-      {/* <div className="appWrapper">
-        <div className="formContainer">
-          <h1 className="title">Phonebook</h1>
-          <ContactForm />
-          <SearchBox />
-        </div>
-        {isLoading && <h2>Loading...</h2>}
-        {isError && <h2>An error occurred. Try again later...</h2>}
-        <ContactList />
-      </div> */}
     </>
   );
 }
