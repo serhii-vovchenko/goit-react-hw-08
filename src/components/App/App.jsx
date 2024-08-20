@@ -16,6 +16,7 @@ import LoginPage from '../../pages/LoginPage/LoginPage';
 import ContactsPage from '../../pages/ContactsPage/ContactsPage';
 import RegistrationPage from '../../pages/RegistrationPage/RegistrationPage';
 import Loader from '../Loader/Loader';
+import NotFound from '../../pages/NotFound/NotFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ function App() {
             </PublicRoute>
           }
         />
-        <Route path="*" element={<h2>Page not found</h2>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

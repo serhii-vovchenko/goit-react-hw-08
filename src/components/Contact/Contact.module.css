@@ -1,45 +1,53 @@
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    min-width: 320px;
-    padding: 12px 20px;
-    border: 1px solid black;
-    border-radius: 12px;
-    box-shadow: 5px 5px 8px 0px rgb(90, 90, 90);
-    transition: transform 250ms ease-in-out;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 0 40px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.wrapper:hover {
-    transform: scale(1.02);
-}
 .userData {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  gap: 40px;
 }
 
 .userName {
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .userPhone {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #777;
 }
 
 .icon {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.btn {
-    padding: 8px;
-    height: 100%;
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.deleteBtn {
+  background-color: #e74c3c;
+}
+
+.deleteBtn:hover {
+  background-color: #c0392b;
 }

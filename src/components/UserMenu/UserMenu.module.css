@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.text {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.button {
+  background-color: #e74c3c;
+  font-weight: bold;
+}
+.button:hover {
+  background-color: #c0392b;
+}

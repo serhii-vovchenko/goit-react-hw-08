@@ -1,38 +1,47 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-weight: 500;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+  position: relative;
+  color: #555;
+  font-weight: bold;
 }
 
 .span {
-    text-align: start;
+  text-align: start;
 }
 
 .input {
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 8px;
-    min-width: 300px;
-    padding: 8px;
-    color: black;
+  background-color: white;
+  min-width: 300px;
+  padding: 8px;
+  color: black;
+  border-radius: 0 20px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+  outline: none;
 }
+.input:focus {
+  border-color: #3498db;
+}
+
 .btn {
-    margin-top: 20px;
-    padding: 8px;
+  margin: 20px 0 20px;
+  padding: 8px;
 }
 
 .errorMessage {
-    color: red;
-    font-size: 12px;
-    font-weight: 500;
-    position: absolute;
-    bottom: -20px;
+  color: #e74c3c;
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  bottom: -20px;
 }

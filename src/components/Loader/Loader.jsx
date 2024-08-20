@@ -1,14 +1,17 @@
+import s from './Loader.module.css';
 import { FallingLines } from 'react-loader-spinner';
 
 const Loader = () => {
   return (
-    <div className="loader">
-      <FallingLines
-        color="#4fa94d"
-        width="100"
-        visible={true}
-        ariaLabel="falling-circles-loading"
-      />
+    <div className={s.wrapper}>
+      <div className={s.loader}>
+        <FallingLines
+          color="#c0392b"
+          width="100"
+          visible={true}
+          ariaLabel="falling-circles-loading"
+        />
+      </div>
     </div>
   );
 };

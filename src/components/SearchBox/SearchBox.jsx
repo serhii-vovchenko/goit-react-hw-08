@@ -10,10 +10,10 @@ const SearchBox = () => {
   const dispatch = useDispatch();
 
   return (
-    <label className={s.wrapper}>
-      <p className={s.label}>Find contact by name</p>
+    <label className={s.label}>
+      <span>Find contact by name</span>
       <input
-        className={s.searchInput}
+        className={s.input}
         type="text"
         value={filterValue}
         onChange={e => {

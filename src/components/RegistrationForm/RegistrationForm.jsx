@@ -28,24 +28,25 @@ const RegistrationForm = () => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form>
-        <label>
+      <Form className={s.wrapper}>
+        <h1 className={s.title}>Create Your Account</h1>
+        <label className={s.label}>
           <span>Name</span>
-          <Field name="name" />
+          <Field name="name" className={s.input} />
         </label>
 
-        <label>
+        <label className={s.label}>
           <span>Email</span>
-          <Field name="email" />
+          <Field name="email" className={s.input} />
         </label>
 
-        <label>
+        <label className={s.label}>
           <span>Password</span>
-          <Field name="password" type="password" />
+          <Field name="password" type="password" className={s.input} />
         </label>
-        <button type="submit">Register</button>
-        <p>
-          Go to<Link to="/login">Login</Link>
+        <button type="submit">Sign Up</button>
+        <p className={s.text}>
+          Already have an account?<Link to="/login">Log in</Link>
         </p>
       </Form>
     </Formik>

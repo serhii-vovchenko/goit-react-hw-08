@@ -1,7 +1,14 @@
 .header {
+  background-color: #3498db;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 15px;
-  border-bottom: 1px solid black;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 0 40px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
 }

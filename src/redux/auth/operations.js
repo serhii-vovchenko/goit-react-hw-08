@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { clearToken, goitApi, setToken } from '../../config/goItApi';
+import toast from 'react-hot-toast';
 
 export const registerThunk = createAsyncThunk(
   'auth/register',
@@ -9,6 +10,7 @@ export const registerThunk = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
+      toast.error('This email is already registered!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -22,6 +24,7 @@ export const loginThunk = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
+      toast.error('This email is not registered or password is invalid!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

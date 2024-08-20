@@ -5,18 +5,21 @@ import { selectUser } from '../../redux/auth/selectors';
 import { logoutThunk } from '../../redux/auth/operations';
 
 const UserMenu = () => {
-  const { name, email } = useSelector(selectUser);
+  const { name } = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
   return (
-    <>
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
-      <button type="button" onClick={() => dispatch(logoutThunk())}>
+    <div className={s.wrapper}>
+      <p className={s.text}>Welcome, {name}!</p>
+      <button
+        type="button"
+        className={s.button}
+        onClick={() => dispatch(logoutThunk())}
+      >
         Logout
       </button>
-    </>
+    </div>
   );
 };
 
