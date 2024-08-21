@@ -1,14 +1,11 @@
 import s from './RegistrationForm.module.css';
 
 import { Field, Form, Formik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/operations';
-import { Link, Navigate } from 'react-router-dom';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { Link } from 'react-router-dom';
 
 const RegistrationForm = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -21,10 +18,6 @@ const RegistrationForm = () => {
     dispatch(registerThunk(data));
     actions.resetForm();
   };
-
-  if (isLoggedIn) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
